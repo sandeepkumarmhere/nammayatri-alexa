@@ -1,0 +1,154 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "change me",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "InitiateAutoBooking",
+          "slots": [],
+          "samples": [
+            "Are there autos in Bangalore that you can book for me",
+            "Can you book autos for me",
+            "I want an auto",
+            "Book Namma Yatri",
+            "Book an auto"
+          ]
+        },
+        {
+          "name": "FixDropLocationIntent",
+          "slots": [
+            {
+              "name": "droplocation",
+              "type": "LOCATIONS",
+              "samples": [
+                "Clayworks",
+                "Central Mall",
+                "Forum Mall",
+                "Dayananda Sagar College of Engineering",
+                "Metro",
+                "Bus Stand",
+                "Mall",
+                "Vega City"
+              ]
+            }
+          ],
+          "samples": [
+            "{droplocation}",
+            "Take me to {droplocation}",
+            "i want to go to {droplocation}",
+            "book an auto to {droplocation}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "Office"
+              }
+            },
+            {
+              "name": {
+                "value": "Metro"
+              }
+            },
+            {
+              "name": {
+                "value": "Bus Stand"
+              }
+            },
+            {
+              "name": {
+                "value": "Forum"
+              }
+            },
+            {
+              "name": {
+                "value": "Central Mall"
+              }
+            },
+            {
+              "name": {
+                "value": "Mall"
+              }
+            },
+            {
+              "name": {
+                "value": "Vega City",
+                "synonyms": [
+                  "Mall"
+                ]
+              }
+            }
+          ],
+          "name": "LOCATIONS"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "FixDropLocationIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "droplocation",
+              "type": "LOCATIONS",
+              "elicitationRequired": true,
+              "confirmationRequired": true,
+              "prompts": {
+                "confirmation": "Confirm.Slot.487714090399.967277639873",
+                "elicitation": "Elicit.Slot.487714090399.967277639873"
+              }
+            }
+          ],
+          "delegationStrategy": "ALWAYS"
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Confirm.Slot.487714090399.967277639873",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Are you sure you want to go to {droplocation} ?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.487714090399.967277639873",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Please tell me your Drop Location"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "9"
+}
